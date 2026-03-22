@@ -1,0 +1,6 @@
+/* App.css - Minimal styles for app wrapper */
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
