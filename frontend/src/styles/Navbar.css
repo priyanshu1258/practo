@@ -28,6 +28,7 @@
   gap: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .navbar-logo:hover {
@@ -120,6 +121,7 @@
   transition: all 0.3s ease;
   color: #cbd5e1;
   background: rgba(99, 102, 241, 0.05);
+  text-decoration: none;
 }
 
 .expert-btn {

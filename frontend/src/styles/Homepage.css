@@ -367,8 +367,7 @@ body {
 /* ====== Features Section ====== */
 .features-section {
   padding: 120px 60px;
-  background: linear-gradient(135deg, #050508 0%, #1a0033 50%, #050508 100%);
-}
+  background: linear-gradient(135deg, #050508 0%, #1a0033 50%, #050508 100%);  scroll-margin-top: 100px;}
 
 .features-header {
   text-align: center;
@@ -466,6 +465,7 @@ body {
 .how-it-works-section {
   padding: 120px 60px;
   background: linear-gradient(180deg, #050508 0%, #0f0020 100%);
+  scroll-margin-top: 100px;
 }
 
 .how-it-works-section .section-title {
@@ -566,8 +566,7 @@ body {
 /* ====== Testimonials Section ====== */
 .testimonials-section {
   padding: 120px 60px;
-  background: linear-gradient(135deg, #050508 0%, #1a0033 50%, #050508 100%);
-}
+  background: linear-gradient(135deg, #050508 0%, #1a0033 50%, #050508 100%);  scroll-margin-top: 100px;}
 
 .testimonials-section .section-title {
   text-align: center;
@@ -601,7 +600,7 @@ body {
   background: rgba(124, 58, 237, 0.1);
   transform: translateY(-10px);
 }
-}
+
 
 .testimonial-rating {
   color: #fbbf24;
