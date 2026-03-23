@@ -42,7 +42,7 @@ export default function Navbar() {
           </div>
 
           <div className="auth-buttons">
-            <button className="btn-signup" onClick={() => navigate('/signup')}>Sign Up</button>
+            <button className="btn-signup" onClick={() => navigate('/Signup')}>Sign Up</button>
           </div>
         </div>
 

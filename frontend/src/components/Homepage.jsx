@@ -271,7 +271,7 @@ export default function Homepage() {
           <h2>Ready to Transform Your Future?</h2>
           <p>Join thousands of satisfied users on Practo today</p>
           <div className="cta-buttons">
-            <button className="btn btn-primary btn-large">Start as Consultee</button>
+            <button className="btn btn-primary btn-large  ">Start as Consultee</button>
             <button className="btn btn-secondary btn-large">Become an Expert</button>
           </div>
         </div>
@@ -310,7 +310,7 @@ export default function Homepage() {
           </div>
         </div>
         <div className="footer-bottom">
-          <p>&copy; 2024 Practo. All rights reserved.</p>
+          <p>&copy; 2026 Practo. All rights reserved.</p>
         </div>
       </footer>
     </div>
