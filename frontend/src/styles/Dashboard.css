@@ -2,7 +2,7 @@
 .dashboard-container {
   min-height: 100vh;
   padding: 120px 60px 80px;
-  background: linear-gradient(135deg, #000000 0%, #050010 50%, #000000 100%);
+  background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
   scroll-margin-top: 100px;
 }
 
@@ -15,16 +15,12 @@
   font-size: 3.5rem;
   font-weight: 800;
   margin-bottom: 20px;
-  background: linear-gradient(135deg, #7c3aed, #00d9ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: #f1f5f9;
+  color: #ffffff;
 }
 
 .dashboard-subtitle {
   font-size: 1.3rem;
-  color: #cbd5e1;
+  color: #b0b0b0;
   margin-bottom: 60px;
 }
 
@@ -36,8 +32,8 @@
 }
 
 .dashboard-card {
-  background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(255, 107, 53, 0.1));
-  border: 1px solid rgba(124, 58, 237, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 15px;
   padding: 40px;
   text-align: center;
@@ -46,10 +42,10 @@
 }
 
 .dashboard-card:hover {
-  border-color: rgba(124, 58, 237, 0.5);
-  background: linear-gradient(135deg, rgba(124, 58, 237, 0.15), rgba(255, 107, 53, 0.15));
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
   transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(124, 58, 237, 0.1);
+  box-shadow: 0 20px 40px rgba(255, 255, 255, 0.05);
 }
 
 .card-icon {
@@ -65,7 +61,7 @@
 }
 
 .dashboard-card p {
-  color: #e0e7ff;
+  color: #d0d0d0;
   line-height: 1.6;
   font-size: 0.95rem;
 }

@@ -1,18 +1,33 @@
 import { useState, useEffect } from 'react'
 import Navbar from './Navbar'
 import '../styles/Homepage.css'
-import img1 from '../assets/pexels-artempodrez-5716006.jpg'
 import img2 from '../assets/pexels-artempodrez-5716031.jpg'
 import img3 from '../assets/pexels-gustavo-fring-4975355.jpg'
-import img4 from '../assets/pexels-gustavo-fring-6050268.jpg'
-import img5 from '../assets/pexels-ketut-subiyanto-4623329.jpg'
 import img6 from '../assets/pexels-olly-3860811.jpg'
-import img7 from '../assets/pexels-olly-3931866.jpg'
 import img8 from '../assets/pexels-tima-miroshnichenko-5439438.jpg'
+import img9 from '../assets/pexels-tima-miroshnichenko-8376303.jpg'
+import img10 from '../assets/pexels-divinetechygirl-1181304.jpg'
+import img11 from '../assets/pexels-fauxels-3182781.jpg'
+import img12 from '../assets/pexels-fauxels-3183150.jpg'
+import img13 from '../assets/pexels-fauxels-3184339.jpg'
 
 export default function Homepage() {
   const [scrollY, setScrollY] = useState(0)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+
+  const slideShowImages = [img2, img3, img6, img8, img9, img10, img11, img12, img13]
+  const imageLabels = [
+    'Professional meeting',
+    'Video call session',
+    'Expert consultation',
+    'Career guidance',
+    'Online consultation',
+    'Team collaboration',
+    'Business mentoring',
+    'Professional development',
+    'Expert advice session'
+  ]
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY)
@@ -31,6 +46,23 @@ export default function Homepage() {
       window.removeEventListener('mousemove', handleMouseMove)
     }
   }, [])
+
+  // Auto-slideshow effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % slideShowImages.length)
+    }, 5000) // Change image every 5 seconds
+
+    return () => clearInterval(interval)
+  }, [slideShowImages.length])
+
+  const handlePrevImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex - 1 + slideShowImages.length) % slideShowImages.length)
+  }
+
+  const handleNextImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % slideShowImages.length)
+  }
 
   return (
     <div className="homepage">
@@ -75,7 +107,31 @@ export default function Homepage() {
             }}
           >
             <div className="hero-card">
-              <img src={img1} alt="Expert consultation" className="hero-image" />
+              <img src={slideShowImages[currentImageIndex]} alt={imageLabels[currentImageIndex]} className="hero-image" />
+              
+              {/* Slideshow Controls */}
+              <button className="slideshow-btn slideshow-prev" onClick={handlePrevImage} title="Previous image">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </button>
+              <button className="slideshow-btn slideshow-next" onClick={handleNextImage} title="Next image">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+
+              {/* Slideshow Indicators */}
+              <div className="slideshow-indicators">
+                {slideShowImages.map((_, index) => (
+                  <button
+                    key={index}
+                    className={`indicator ${index === currentImageIndex ? 'active' : ''}`}
+                    onClick={() => setCurrentImageIndex(index)}
+                    title={`Go to image ${index + 1}`}
+                  ></button>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -90,19 +146,19 @@ export default function Homepage() {
       <section className="stats-section">
         <div className="stats-container">
           <div className="stat-item" style={{ animationDelay: '0s' }}>
-            <div className="stat-number">10K+</div>
+            <h2 className="stat-number">10K+</h2>
             <div className="stat-label">Expert Professionals</div>
           </div>
           <div className="stat-item" style={{ animationDelay: '0.2s' }}>
-            <div className="stat-number">50K+</div>
+            <h2 className="stat-number">50K+</h2>
             <div className="stat-label">Happy Consultees</div>
           </div>
           <div className="stat-item" style={{ animationDelay: '0.4s' }}>
-            <div className="stat-number">100K+</div>
+            <h2 className="stat-number">100K+</h2>
             <div className="stat-label">Sessions Completed</div>
           </div>
           <div className="stat-item" style={{ animationDelay: '0.6s' }}>
-            <div className="stat-number">4.9★</div>
+            <h2 className="stat-number">4.9★</h2>
             <div className="stat-label">Average Rating</div>
           </div>
         </div>
@@ -182,7 +238,7 @@ export default function Homepage() {
 
       {/* How It Works Section */}
       <section className="how-it-works-section" id="how-it-works">
-        <div className="section-title">How It Works</div>
+        <h2 className="section-title">How It Works</h2>
         
         <div className="steps-container">
           <div className="step">
@@ -243,7 +299,7 @@ export default function Homepage() {
             <div className="testimonial-rating">★★★★★</div>
             <p className="testimonial-text">"As an expert, I found the platform easy to use and a great way to help others while earning well."</p>
             <div className="testimonial-author">
-              <img src={img4} alt="Michael Chen" className="author-avatar" />
+              <img src={img8} alt="Michael Chen" className="author-avatar" />
               <div>
                 <p className="author-name">Michael Chen</p>
                 <p className="author-role">Business Consultant</p>
@@ -255,7 +311,7 @@ export default function Homepage() {
             <div className="testimonial-rating">★★★★★</div>
             <p className="testimonial-text">"The video quality is excellent and the booking process is seamless. Best investment I made!"</p>
             <div className="testimonial-author">
-              <img src={img5} alt="Emma Williams" className="author-avatar" />
+              <img src={img6} alt="Emma Williams" className="author-avatar" />
               <div>
                 <p className="author-name">Emma Williams</p>
                 <p className="author-role">Student</p>
@@ -271,8 +327,8 @@ export default function Homepage() {
           <h2>Ready to Transform Your Future?</h2>
           <p>Join thousands of satisfied users on Practo today</p>
           <div className="cta-buttons">
-            <button className="btn btn-primary btn-large  ">Start as Consultee</button>
-            <button className="btn btn-secondary btn-large">Become an Expert</button>
+            <button className="btn btn-primary btn-small  ">Start as Consultee</button>
+            <button className="btn btn-secondary btn-small ">Become an Expert</button>
           </div>
         </div>
       </section>
