@@ -1,14 +1,47 @@
 /* ====== Navbar Styles ====== */
+
+/* Navbar Animations */
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
-  background: linear-gradient(135deg, rgba(5, 5, 8, 0.98), rgba(15, 0, 32, 0.98));
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(99, 102, 241, 0.1);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(224, 242, 254, 0.95));
+  backdrop-filter: blur(100px);
+  border-bottom: 2px solid rgba(0, 188, 212, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 132, 255, 0.1);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.navbar-visible {
+  animation: slideDown 0.3s ease forwards;
+}
+
+.navbar-hidden {
+  animation: slideUp 0.3s ease forwards;
 }
 
 .navbar-container {
@@ -38,7 +71,7 @@
 .logo-icon {
   width: 40px;
   height: 40px;
-  background: linear-gradient(135deg, #6366f1, #ec4899);
+  background: linear-gradient(135deg, #0084ff, #00bcd4);
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -46,12 +79,13 @@
   font-weight: 700;
   font-size: 1.2rem;
   color: white;
+  box-shadow: 0 4px 12px rgba(0, 132, 255, 0.3);
 }
 
 .logo-text {
   font-size: 1.5rem;
   font-weight: 700;
-  background: linear-gradient(135deg, #6366f1, #60a5fa);
+  background: linear-gradient(135deg, #0084ff, #00bcd4);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -67,7 +101,7 @@
 }
 
 .nav-link {
-  color: #cbd5e1;
+  color: #333333;
   text-decoration: none;
   font-weight: 500;
   transition: all 0.3s ease;
@@ -76,7 +110,7 @@
 }
 
 .nav-link:hover {
-  color: #6366f1;
+  color: #0084ff;
 }
 
 .nav-link::after {
@@ -86,7 +120,7 @@
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, #6366f1, #ec4899);
+  background: linear-gradient(90deg, #0084ff, #00bcd4);
   transition: width 0.3s ease;
 }
 
@@ -119,33 +153,33 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  color: #cbd5e1;
-  background: rgba(99, 102, 241, 0.05);
+  color: #333333;
+  background: rgba(0, 188, 212, 0.08);
   text-decoration: none;
 }
 
 .expert-btn {
-  border-color: rgba(99, 102, 241, 0.3);
+  border-color: rgba(0, 132, 255, 0.3);
 }
 
 .expert-btn:hover {
-  background: rgba(99, 102, 241, 0.2);
-  border-color: #6366f1;
-  color: #6366f1;
+  background: rgba(0, 132, 255, 0.15);
+  border-color: #0084ff;
+  color: #0084ff;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 132, 255, 0.25);
 }
 
 .consultee-btn {
-  border-color: rgba(236, 72, 153, 0.3);
+  border-color: rgba(0, 188, 212, 0.3);
 }
 
 .consultee-btn:hover {
-  background: rgba(236, 72, 153, 0.2);
-  border-color: #ec4899;
-  color: #ec4899;
+  background: rgba(0, 188, 212, 0.15);
+  border-color: #00bcd4;
+  color: #00bcd4;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(236, 72, 153, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 188, 212, 0.25);
 }
 
 /* Auth Buttons */
@@ -170,25 +204,25 @@
 
 .btn-signin {
   background: transparent;
-  color: #cbd5e1;
-  border: 2px solid rgba(99, 102, 241, 0.3);
+  color: #0084ff;
+  border: 2px solid rgba(0, 132, 255, 0.4);
 }
 
 .btn-signin:hover {
-  color: #6366f1;
-  border-color: #6366f1;
-  background: rgba(99, 102, 241, 0.1);
+  color: white;
+  border-color: #0084ff;
+  background: linear-gradient(135deg, #0084ff, #00bcd4);
 }
 
 .btn-signup {
-  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  background: linear-gradient(135deg, #0084ff, #00bcd4);
   color: white;
-  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 132, 255, 0.3);
 }
 
 .btn-signup:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
+  box-shadow: 0 6px 20px rgba(0, 132, 255, 0.5);
 }
 
 /* Mobile Menu Toggle */
