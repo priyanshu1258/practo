@@ -10,7 +10,7 @@ export default function ConsulteeDashboard() {
       <Navbar />
       <div className="dashboard-container">
         <div className="dashboard-content">
-          <h1 className="dashboard-title">Consultee Dashboard</h1>
+          <h2 className="dashboard-title">Consultee Dashboard</h2>
           <p className="dashboard-subtitle">Explore experts and book sessions</p>
           
           <div className="dashboard-grid">

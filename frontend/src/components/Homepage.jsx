@@ -182,7 +182,7 @@ export default function Homepage() {
 
       {/* How It Works Section */}
       <section className="how-it-works-section" id="how-it-works">
-        <div className="section-title">How It Works</div>
+        <h2 className="section-title">How It Works</h2>
         
         <div className="steps-container">
           <div className="step">
