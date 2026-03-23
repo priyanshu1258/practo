@@ -1,13 +1,34 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import '../styles/Navbar.css'
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isNavbarHidden, setIsNavbarHidden] = useState(false)
+  const [lastScrollY, setLastScrollY] = useState(0)
   const navigate = useNavigate()
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY
+
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down, hide navbar
+        setIsNavbarHidden(true)
+      } else {
+        // Scrolling up, show navbar
+        setIsNavbarHidden(false)
+      }
+
+      setLastScrollY(currentScrollY)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [lastScrollY])
+
   return (
-    <nav className="navbar">
+    <nav className={`navbar ${isNavbarHidden ? 'navbar-hidden' : 'navbar-visible'}`}>
       <div className="navbar-container">
         <Link to="/" className="navbar-logo">
           <span className="logo-icon">P</span>
@@ -42,7 +63,7 @@ export default function Navbar() {
           </div>
 
           <div className="auth-buttons">
-            <button className="btn-signup" onClick={() => navigate('/signup')}>Sign Up</button>
+            <button className="btn-signup" onClick={() => navigate('/Signup')}>Sign Up</button>
           </div>
         </div>
 
