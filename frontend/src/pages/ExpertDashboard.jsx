@@ -10,7 +10,7 @@ export default function ExpertDashboard() {
       <Navbar />
       <div className="dashboard-container">
         <div className="dashboard-content">
-          <h1 className="dashboard-title">Expert Dashboard</h1>
+          <h2 className="dashboard-title">Expert Dashboard</h2>
           <p className="dashboard-subtitle">Manage your sessions and consultations</p>
           
           <div className="dashboard-grid">

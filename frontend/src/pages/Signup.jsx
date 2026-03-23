@@ -132,7 +132,7 @@ export default function Signup() {
                   className={`role-toggle-btn ${!isExpert ? 'active-user' : ''}`}
                   onClick={() => { setRole('user'); setError('') }}
                 >
-                  👤 User
+                  👤 Consultee
                 </button>
                 <button
                   type="button"
@@ -176,14 +176,14 @@ export default function Signup() {
 
               {/* Logo */}
               <Link to="/" className="auth-logo">
-                <div className="auth-logo-icon">C</div>
-                <span className="auth-logo-text">ConsultPro</span>
+                <div className="auth-logo-icon">P</div>
+                <span className="auth-logo-text">Practo</span>
               </Link>
 
               {/* Heading */}
               <div className="auth-header">
                 <h1 className="auth-title">
-                  {isExpert ? 'Expert Registration' : 'Create Account'}
+                  {isExpert ? 'Register As An Expert' : 'Create Account'}
                 </h1>
                 <p className="auth-subtitle">
                   {isExpert
