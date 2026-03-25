@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/userPage.css";
 
 // ─── SVG Icons (inline, no emoji) ───────────────────────────────────────────
@@ -298,11 +299,36 @@ function LiveExpertRow({ expert, onConnect, delay = 0 }) {
 
 // ─── Book Session Modal ───────────────────────────────────────────────────────
 function BookModal({ expert, onClose }) {
+  const navigate = useNavigate();
   const [slot, setSlot] = useState("");
   const [date, setDate] = useState("");
   const [duration, setDuration] = useState("30");
   const platformFee = Math.round(expert.price * 0.05);
   const total = expert.price + platformFee;
+  function handleConfirmAndPay() {
+    onClose();
+    navigate("/payment", {
+      state: {
+        booking: {
+          id: "BK" + Date.now(),
+          date: date || new Date().toISOString().split("T")[0],
+          time: slot || "10:00 AM",
+          duration: Number(duration),
+          status: "pending",
+        },
+        expert: {
+          name:           expert.name,
+          initials:       expert.initials,
+          specialization: expert.title,
+          category:       expert.field,
+          experience:     expert.experience,
+          price:          expert.price,
+          rating:         expert.rating,
+          totalReviews:   expert.reviews,
+        },
+      },
+    });
+  }
 
   return (
     <div className="modal-overlay" onClick={e => { if (e.target === e.currentTarget) onClose(); }}>
@@ -357,7 +383,7 @@ function BookModal({ expert, onClose }) {
             </div>
           </div>
 
-          <button className="modal-pay-btn" onClick={onClose}>
+          <button className="modal-pay-btn" onClick={handleConfirmAndPay}>
             Confirm & Pay ₹{total.toLocaleString()}
           </button>
           <p className="modal-note">
@@ -371,6 +397,33 @@ function BookModal({ expert, onClose }) {
 
 // ─── Connect Live Modal ───────────────────────────────────────────────────────
 function ConnectModal({ expert, onClose }) {
+   const navigate = useNavigate();           // ← ADD THIS LINE
+
+  // ← ADD THIS WHOLE FUNCTION
+  function handlePayAndConnect() {
+    onClose();
+    navigate("/payment", {
+      state: {
+        booking: {
+          id: "LIVE" + Date.now(),
+          date: new Date().toISOString().split("T")[0],
+          time: new Date().toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit" }),
+          duration: 30,
+          status: "pending",
+        },
+        expert: {
+          name:           expert.name,
+          initials:       expert.initials,
+          specialization: expert.title,
+          category:       expert.field,
+          experience:     "N/A",
+          price:          expert.price,
+          rating:         expert.rating,
+          totalReviews:   0,
+        },
+      },
+    });
+  }
   return (
     <div className="modal-overlay" onClick={e => { if (e.target === e.currentTarget) onClose(); }}>
       <div className="modal-card">
@@ -404,7 +457,7 @@ function ConnectModal({ expert, onClose }) {
             </div>
           </div>
 
-          <button className="modal-pay-btn" style={{ background: "linear-gradient(135deg,#00c87a,#00897b)", boxShadow: "0 6px 18px rgba(0,200,122,0.3)" }} onClick={onClose}>
+          <button className="modal-pay-btn" style={{ background: "linear-gradient(135deg,#00c87a,#00897b)", boxShadow: "0 6px 18px rgba(0,200,122,0.3)" }} onClick={handlePayAndConnect}>
             Pay & Connect Instantly
           </button>
           <p className="modal-note">

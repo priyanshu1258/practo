@@ -6,7 +6,7 @@ import ExpertDashboard from "./pages/ExpertDashboard";
 import Login from './pages/Login'
 import Signup from './pages/Signup'
 import UserPage from './pages/userPage'
-
+import Payment from './pages/Payment'
 function App() {
   return (
     <Routes>
@@ -21,6 +21,7 @@ function App() {
   {/* optional demo routes */}
   <Route path="/expert" element={<ExpertDashboardDemo />} />
   <Route path="/consultee" element={<ConsulteeDashboard />} />
+  <Route path="/payment" element={<Payment />} />
 
   {/* keep wildcard LAST */}
   <Route path="*" element={<Signup />} />
