@@ -102,7 +102,7 @@ export default function Signup() {
       // ─────────────────────────────────────────────────────────────────────
 
       await new Promise(r => setTimeout(r, 900))   // simulate network
-      navigate(isExpert ? '/expert-dashboard' : '/consultee-dashboard')
+      navigate(isExpert ? '/expert-dashboard' : '/userPage')
     } catch (err) {
       setError(err.message || 'Registration failed. Please try again.')
     } finally {
