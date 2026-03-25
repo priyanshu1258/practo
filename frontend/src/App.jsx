@@ -1,11 +1,9 @@
 import { Routes, Route } from 'react-router-dom'
 import Homepage from './components/Homepage'
 import ExpertDashboard from './pages/ExpertDashboard'
-import ConsulteeDashboard from './pages/ConsulteeDashboard'
-
+import ConsulteeDashboard from './pages/userPage'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
-import './App.css'
 
 function App() {
   return (
@@ -13,9 +11,8 @@ function App() {
       <Route path="/" element={<Homepage />} />
       <Route path="/expert" element={<ExpertDashboard />} />
       <Route path="/consultee" element={<ConsulteeDashboard />} />
-      <Route path="*" element={<Signup />} />
-      <Route path="/Signup" element={<Signup />} />
-      { <Route path="/Login" element={<Login />} /> }
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
     </Routes>
   )
 }

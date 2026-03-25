@@ -49,7 +49,7 @@ export default function Login() {
 
       // Demo navigation
       await new Promise(r => setTimeout(r, 800))   // simulate network
-      navigate(isExpert ? '/expert-dashboard' : '/consultee-dashboard')
+      navigate(isExpert ? '/expert' : '/consultee')
     } catch (err) {
       setError(err.message || 'Login failed. Please try again.')
     } finally {
