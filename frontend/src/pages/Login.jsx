@@ -90,21 +90,21 @@ export default function Login() {
                 className={`role-toggle-btn ${!isExpert ? 'active-user' : ''}`}
                 onClick={() => { setRole('user'); setError('') }}
               >
-                👤 I'm a User
+                User
               </button>
               <button
                 type="button"
                 className={`role-toggle-btn ${isExpert ? 'active-expert' : ''}`}
                 onClick={() => { setRole('expert'); setError('') }}
               >
-                🎓 I'm an Expert
+                Expert
               </button>
             </div>
 
             {/* Error */}
             {error && (
               <div className="auth-error">
-                <span>⚠️</span> {error}
+                <span>●</span> {error}
               </div>
             )}
 
@@ -113,12 +113,11 @@ export default function Login() {
 
               {/* Email */}
               <div className="form-group">
-                <label className="form-label">Email address</label>
+                <label className="form-label">Email Address</label>
                 <div className="form-input-wrap">
-                  <span className="form-input-icon">✉️</span>
                   <input
                     type="email"
-                    className="form-input"
+                    className="form-input no-icon"
                     placeholder="you@example.com"
                     value={email}
                     onChange={e => setEmail(e.target.value)}
@@ -132,10 +131,9 @@ export default function Login() {
               <div className="form-group">
                 <label className="form-label">Password</label>
                 <div className="form-input-wrap">
-                  <span className="form-input-icon">🔒</span>
                   <input
                     type={showPass ? 'text' : 'password'}
-                    className="form-input"
+                    className="form-input no-icon"
                     placeholder="Enter your password"
                     value={password}
                     onChange={e => setPassword(e.target.value)}
@@ -148,16 +146,16 @@ export default function Login() {
                     onClick={() => setShowPass(v => !v)}
                     aria-label="Toggle password visibility"
                   >
-                    {showPass ? '🙈' : '👁️'}
+                    {showPass ? 'Hide' : 'Show'}
                   </button>
                 </div>
               </div>
 
               {/* Forgot password */}
               <div style={{ textAlign: 'right', marginTop: '-12px', marginBottom: '20px' }}>
-                <span className="auth-link" style={{ fontSize: '0.85rem' }}>
+                <Link to="/forgot-password" className="auth-link" style={{ fontSize: '0.85rem' }}>
                   Forgot password?
-                </span>
+                </Link>
               </div>
 
               {/* Submit */}

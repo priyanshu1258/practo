@@ -132,20 +132,20 @@ export default function Signup() {
                   className={`role-toggle-btn ${!isExpert ? 'active-user' : ''}`}
                   onClick={() => { setRole('user'); setError('') }}
                 >
-                  👤 Consultee
+                  Consultee
                 </button>
                 <button
                   type="button"
                   className={`role-toggle-btn ${isExpert ? 'active-expert' : ''}`}
                   onClick={() => { setRole('expert'); setError('') }}
                 >
-                  🎓 Expert
+                  Expert
                 </button>
               </div>
 
               {/* Icon + heading */}
               <div className="panel-icon">
-                {isExpert ? '🎓' : '🔍'}
+                {isExpert ? 'Expert' : 'User'}
               </div>
               <h2>{isExpert ? 'Join as Expert' : 'Join as User'}</h2>
               <p>
@@ -165,9 +165,9 @@ export default function Signup() {
               </ul>
 
               {/* Already have account */}
-              <p style={{ fontSize: '0.85rem', color: '#64748b', marginTop: '8px' }}>
+              <p style={{ fontSize: '0.85rem', color: '#1a1a1a', marginTop: '8px' }}>
                 Already have an account?{' '}
-                <Link to="/Login" className="auth-link">Sign in</Link>
+                <Link to="/login" className="auth-link">Sign in</Link>
               </p>
             </div>
 
@@ -176,14 +176,14 @@ export default function Signup() {
 
               {/* Logo */}
               <Link to="/" className="auth-logo">
-                <div className="auth-logo-icon">P</div>
-                <span className="auth-logo-text">Practo</span>
+                <div className="auth-logo-icon">C</div>
+                <span className="auth-logo-text">ConsultPro</span>
               </Link>
 
               {/* Heading */}
               <div className="auth-header">
                 <h1 className="auth-title">
-                  {isExpert ? 'Register As An Expert' : 'Create Account'}
+                  {isExpert ? 'Register As Expert' : 'Create Account'}
                 </h1>
                 <p className="auth-subtitle">
                   {isExpert
@@ -195,10 +195,9 @@ export default function Signup() {
               {/* Expert notice */}
               {isExpert && (
                 <div className="expert-notice">
-                  <span className="expert-notice-icon">ℹ️</span>
+                  <span className="expert-notice-icon">ℹ</span>
                   <span>
-                    Expert accounts are reviewed by our admin team within 24–48 hours
-                    before going live. You'll be notified via email.
+                    Expert accounts are reviewed by our admin team within 24-48 hours before going live.
                   </span>
                 </div>
               )}
@@ -206,7 +205,7 @@ export default function Signup() {
               {/* Error */}
               {error && (
                 <div className="auth-error">
-                  <span>⚠️</span> {error}
+                  <span>●</span> {error}
                 </div>
               )}
 
@@ -218,10 +217,9 @@ export default function Signup() {
                   <div className="form-group">
                     <label className="form-label">Full Name</label>
                     <div className="form-input-wrap">
-                      <span className="form-input-icon">👤</span>
                       <input
                         type="text"
-                        className="form-input"
+                        className="form-input no-icon"
                         placeholder="Your full name"
                         value={name}
                         onChange={e => setName(e.target.value)}
@@ -233,10 +231,9 @@ export default function Signup() {
                   <div className="form-group">
                     <label className="form-label">Phone Number</label>
                     <div className="form-input-wrap">
-                      <span className="form-input-icon">📱</span>
                       <input
                         type="tel"
-                        className="form-input"
+                        className="form-input no-icon"
                         placeholder="+91 9876543210"
                         value={phone}
                         onChange={e => setPhone(e.target.value)}
@@ -249,10 +246,9 @@ export default function Signup() {
                 <div className="form-group">
                   <label className="form-label">Email Address</label>
                   <div className="form-input-wrap">
-                    <span className="form-input-icon">✉️</span>
                     <input
                       type="email"
-                      className="form-input"
+                      className="form-input no-icon"
                       placeholder="you@example.com"
                       value={email}
                       onChange={e => setEmail(e.target.value)}
@@ -270,7 +266,6 @@ export default function Signup() {
                       <div className="form-group">
                         <label className="form-label">Category</label>
                         <div className="form-input-wrap select-wrap">
-                          <span className="form-input-icon">📂</span>
                           <select
                             className="form-select"
                             value={category}
@@ -286,10 +281,9 @@ export default function Signup() {
                       <div className="form-group">
                         <label className="form-label">Specialization</label>
                         <div className="form-input-wrap">
-                          <span className="form-input-icon">🏷️</span>
                           <input
                             type="text"
-                            className="form-input"
+                            className="form-input no-icon"
                             placeholder="e.g. Tax Law, MBBS"
                             value={specialization}
                             onChange={e => setSpec(e.target.value)}
@@ -304,10 +298,9 @@ export default function Signup() {
                       <div className="form-group">
                         <label className="form-label">Years of Experience</label>
                         <div className="form-input-wrap">
-                          <span className="form-input-icon">📅</span>
                           <input
                             type="number"
-                            className="form-input"
+                            className="form-input no-icon"
                             placeholder="e.g. 8"
                             min="0"
                             value={experience}
@@ -317,12 +310,11 @@ export default function Signup() {
                       </div>
 
                       <div className="form-group">
-                        <label className="form-label">Consultation Fee (₹)</label>
+                        <label className="form-label">Consultation Fee</label>
                         <div className="form-input-wrap">
-                          <span className="form-input-icon">💰</span>
                           <input
                             type="number"
-                            className="form-input"
+                            className="form-input no-icon"
                             placeholder="e.g. 800"
                             min="0"
                             value={price}
@@ -340,10 +332,9 @@ export default function Signup() {
                   <div className="form-group">
                     <label className="form-label">Password</label>
                     <div className="form-input-wrap">
-                      <span className="form-input-icon">🔒</span>
                       <input
                         type={showPass ? 'text' : 'password'}
-                        className="form-input"
+                        className="form-input no-icon"
                         placeholder="Min 6 characters"
                         value={password}
                         onChange={e => setPassword(e.target.value)}
@@ -356,7 +347,7 @@ export default function Signup() {
                         onClick={() => setShowPass(v => !v)}
                         aria-label="Toggle password"
                       >
-                        {showPass ? '🙈' : '👁️'}
+                        {showPass ? 'Hide' : 'Show'}
                       </button>
                     </div>
                   </div>
@@ -364,10 +355,9 @@ export default function Signup() {
                   <div className="form-group">
                     <label className="form-label">Confirm Password</label>
                     <div className="form-input-wrap">
-                      <span className="form-input-icon">🔑</span>
                       <input
                         type={showConfirm ? 'text' : 'password'}
-                        className="form-input"
+                        className="form-input no-icon"
                         placeholder="Repeat password"
                         value={confirmPass}
                         onChange={e => setConfirmPass(e.target.value)}
@@ -380,7 +370,7 @@ export default function Signup() {
                         onClick={() => setShowConfirm(v => !v)}
                         aria-label="Toggle confirm password"
                       >
-                        {showConfirm ? '🙈' : '👁️'}
+                        {showConfirm ? 'Hide' : 'Show'}
                       </button>
                     </div>
                   </div>
